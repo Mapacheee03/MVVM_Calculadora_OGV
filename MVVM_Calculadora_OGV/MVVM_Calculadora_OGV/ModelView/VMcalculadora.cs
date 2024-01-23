@@ -5,16 +5,16 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Calculadora_OGV_
+namespace MVVM_Calculadora_OGV
 {
     public class VMcalculadora : BaseViewModel
     {
         #region VARIABLES
+        private string _quebrille;
         private string _spnFirst;
         private string _spnSecond;
         private string _spnThird;
         private string _lblNumber;
-
         private double numeroUno = 0, numRespuesta = 0;
         private int operador = -1;
         private bool hayPunto = false;
@@ -26,7 +26,11 @@ namespace Calculadora_OGV_
         }
         #endregion
         #region OBJETOS
-
+        public string quebrille
+        {
+            get { return _quebrille; }
+            set { SetProperty(ref _quebrille, value); }
+        }
         public string SpnFirst
         {
             get { return _spnFirst; }
@@ -52,6 +56,7 @@ namespace Calculadora_OGV_
         }
         #endregion
         #region PROCESO
+       
         private void BtnAC()
         {
             numeroUno = 0;
@@ -95,14 +100,17 @@ namespace Calculadora_OGV_
 
             if (operador != -1)
             {
+                quebrille = string.Empty; // Apagar el operador anterior
                 BtnEquals();
             }
 
+            quebrille = operando; // Encender el nuevo operador
             IgualarValores(operando, valor);
         }
 
         private void ClickNumber(string numero)
         {
+            quebrille = null;
             IngresarNumero(numero);
         }
 
@@ -188,14 +196,17 @@ namespace Calculadora_OGV_
             operador = valor;
             hayPunto = false;
         }
+
         #endregion
         #region COMANDOS
+
         public ICommand BtnACCommand => new Command(BtnAC);
         public ICommand Click_CCommand => new Command(Click_C);
         public ICommand BtnOperadorCommand => new Command<string>(BtnOperador);
         public ICommand ClickNumberCommand => new Command<string>(ClickNumber);
         public ICommand ClickPointCommand => new Command(ClickPoint);
         public ICommand BtnEqualsCommand => new Command(BtnEquals);
+
         #endregion
 
     }

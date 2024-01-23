@@ -1,4 +1,4 @@
-﻿using Calculadora_OGV_;
+﻿using MVVM_Calculadora_OGV;
 using MVVM_Calculadora_OGV.ModelView;
 using MVVM_Calculadora_OGV.View;
 using System;
