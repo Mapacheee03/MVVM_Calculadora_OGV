@@ -100,11 +100,11 @@ namespace MVVM_Calculadora_OGV
 
             if (operador != -1)
             {
-                quebrille = string.Empty; // Apagar el operador anterior
+                quebrille = string.Empty; 
                 BtnEquals();
             }
 
-            quebrille = operando; // Encender el nuevo operador
+            quebrille = operando; 
             IgualarValores(operando, valor);
         }
 
@@ -116,6 +116,7 @@ namespace MVVM_Calculadora_OGV
 
         private void ClickPoint()
         {
+            quebrille = null;
             IngresarNumero(".");
         }
 

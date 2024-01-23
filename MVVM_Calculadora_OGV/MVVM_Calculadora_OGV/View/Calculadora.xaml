@@ -38,7 +38,7 @@
             <Grid AbsoluteLayout.LayoutBounds="0,1,1,0.62" AbsoluteLayout.LayoutFlags="SizeProportional,YProportional" 
                 RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*" Padding="0" RowSpacing="1" ColumnSpacing="1">
 
-                <!-- Botones con enlace a comandos del ViewModel -->
+                
                 <Button Grid.Column="0" Grid.Row="0" FontSize="24" Text="AC" TextColor="#ff5722" BackgroundColor="Black" Command="{Binding BtnACCommand}" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
                 <Button Grid.Column="1" Grid.Row="0" FontSize="24" Text="C" TextColor="#ff5722" BackgroundColor="Black" Command="{Binding Click_CCommand}" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
                 <Button Grid.Column="2" Grid.Row="0" FontSize="24" Text="÷" TextColor="#ff5722" BackgroundColor="Black" Command="{Binding BtnOperadorCommand}" CommandParameter="÷" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50">
