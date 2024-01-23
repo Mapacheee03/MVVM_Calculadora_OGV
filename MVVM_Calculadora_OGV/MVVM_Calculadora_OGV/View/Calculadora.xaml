@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM_Calculadora_OGV.View.Calculadora"
+             BackgroundColor="Black">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonPressedStyle" TargetType="Button">
+                <Style.Triggers>
+                    <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                        <Setter Property="BackgroundColor" Value="Wheat" />
+                        <Setter Property="TextColor" Value="White" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,.32" AbsoluteLayout.LayoutFlags="All" 
+                     HorizontalOptions="End" VerticalOptions="End" Padding="24,0" Spacing="0">
+            <Label HorizontalOptions="End" Padding="8,0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Text="{Binding SpnFirst}" FontSize="36" TextColor="White"/>
+                            <Span Text="{Binding SpnSecond}" FontSize="32" TextColor="White"/>
+                            <Span Text="{Binding SpnThird}" FontSize="36" TextColor="White"/>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="{Binding LblNumber}" HorizontalOptions="End" TextColor="White" Margin="0,0,16,0" FontSize="84" FontAttributes="Bold"/>
+        </StackLayout>
+        <Frame AbsoluteLayout.LayoutBounds="0,1,1,0.1" AbsoluteLayout.LayoutFlags="SizeProportional,YProportional" BackgroundColor="Black"/>
+
+        <Frame AbsoluteLayout.LayoutBounds="0,.95,1,0.62" AbsoluteLayout.LayoutFlags="SizeProportional,YProportional" BackgroundColor="Black" HasShadow="False" CornerRadius="0">
+            <Grid AbsoluteLayout.LayoutBounds="0,1,1,0.62" AbsoluteLayout.LayoutFlags="SizeProportional,YProportional" 
+                RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*" Padding="0" RowSpacing="1" ColumnSpacing="1">
+
+                <!-- Botones con enlace a comandos del ViewModel -->
+                <Button Grid.Column="0" Grid.Row="0" FontSize="24" Text="AC" TextColor="#ff5722" BackgroundColor="Black" Command="{Binding BtnACCommand}" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="1" Grid.Row="0" FontSize="24" Text="C" TextColor="#ff5722" BackgroundColor="Black" Command="{Binding Click_CCommand}" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="2" Grid.Row="0" FontSize="24" Text="÷" TextColor="#ff5722" BackgroundColor="Black" Command="{Binding BtnOperadorCommand}" CommandParameter="÷" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="3" Grid.Row="1" FontSize="24" Text="*" TextColor="#ff5722" BackgroundColor="Black" Command="{Binding BtnOperadorCommand}" CommandParameter="*" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+
+                <!-- Resto de botones con enlace a comandos del ViewModel -->
+                <Button Grid.Column="0" Grid.Row="1" FontSize="24" Text="7" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="7" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="1" Grid.Row="1" FontSize="24" Text="8" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="8" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="2" Grid.Row="1" FontSize="24" Text="9" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="9" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="3" Grid.Row="2" FontSize="24" Text="-" TextColor="#ff5722" BackgroundColor="Black" Command="{Binding BtnOperadorCommand}" CommandParameter="-" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+
+                <Button Grid.Column="0" Grid.Row="2" FontSize="24" Text="4" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="4" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="1" Grid.Row="2" FontSize="24" Text="5" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="5" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="2" Grid.Row="2" FontSize="24" Text="6" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="6" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="3" Grid.Row="3" FontSize="24" Text="+" TextColor="#ff5722" BackgroundColor="Black" Command="{Binding BtnOperadorCommand}" CommandParameter="+" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+
+                <Button Grid.Column="0" Grid.Row="3" FontSize="24" Text="1" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="1" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="1" Grid.Row="3" FontSize="24" Text="2" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="2" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="2" Grid.Row="3" FontSize="24" Text="3" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="3" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="3" Grid.Row="4" FontSize="60" CornerRadius="50" Text="=" TextColor="#fff" BackgroundColor="#ff5722" Command="{Binding BtnEqualsCommand}" Style="{StaticResource ButtonPressedStyle}"/>
+
+                <Button Grid.Column="0" Grid.Row="4" FontSize="24" Text="0" TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickNumberCommand}" CommandParameter="0" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+                <Button Grid.Column="1" Grid.Row="4" FontSize="24" Text="." TextColor="#fff" BackgroundColor="Black" Command="{Binding ClickPointCommand}" Style="{StaticResource ButtonPressedStyle}" CornerRadius="50"/>
+
+            </Grid>
+        </Frame>
+    </AbsoluteLayout>
+</ContentPage>
